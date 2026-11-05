@@ -1,6 +1,7 @@
 package Pages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -54,7 +55,7 @@ public class customerpanel {
 	@FindBy(xpath = "//*[@id=\"categories\"]/div[2]/a[2]")
 	public WebElement Beautyandspa;
 	
-	@FindBy(xpath = "//h2[text()='Featured this week'")
+	@FindBy(xpath = "//h2[normalize-space()='Featured this week']")
 	public WebElement Featuredthisweek;
 	
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[3]/div/div[2]/a[1]")
@@ -84,7 +85,7 @@ public class customerpanel {
 	@FindBy(xpath = "//a[@data-testid='cta-add-business']")
 	public WebElement addyourbusiness;
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[6]/div/div[2]/div[2]/a[1]")
+	@FindBy(xpath = "//a[@href='/pricing' and normalize-space()='See pricing']")
 	public WebElement seepricing;
 	
 	@FindBy(xpath = "//*[@id=\"root\"]/div/footer")
@@ -126,9 +127,32 @@ public class customerpanel {
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div/h1")
 	public WebElement Topratedbusinesses;
 	
-	//@FindBy(xpath = "//*[@id=\"root\"]/div/main")
-	//public WebElement createyouraccount;
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main")
+	public WebElement addyourbusinessespage;
 	
+	@FindBy(xpath = "//input[@required data-testid='register-name']")
+	public WebElement fullname;
+	
+	@FindBy(xpath = "//input[required data-testid='register-email']")
+	public WebElement addyourbusinessemail;
+	
+	@FindBy(xpath = "//input[data-testid='register-phone']")
+	public WebElement addyourbusinessphone;
+	
+	@FindBy(xpath = "//input[data-testid='register-password']")
+	public WebElement addyourbusinesspassword;
+	
+	@FindBy(xpath = "//button[data-testid='register-submit-btn']")
+	public WebElement addyourbusinesssignbtn;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div")
+	public WebElement pricingplanpage;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main")
+	public WebElement howitworkspage;
+	
+	@FindBy(xpath = "//a[starts-with(@data-testid,'business-card-')]")
+	List<WebElement> businessCards;
 	
 	//Getters
 	public WebElement getsigninbtn() {
@@ -221,7 +245,8 @@ public class customerpanel {
 	public WebElement gethowclaimsworkfooterlink() {
 		return howclaimsworkfooterlink;
 	}
-	public WebElement gethowitworksfooterlink() {
+	
+	public WebElement gethowitworksfooterliink() {
 		return howitworksfooterlink;
 	}
 	public WebElement getpricingfooterlink() {
@@ -238,6 +263,38 @@ public class customerpanel {
 	}
 	public WebElement getTopratedbusinesses() {
 		return Topratedbusinesses;
+	}
+	
+	public WebElement getfullname()  {
+		return fullname;
+	}
+	
+	public WebElement getaddyourbusinessemail()  {
+		return addyourbusinessemail;
+	}
+	public WebElement getaddyourbusinessphone()  {
+		return addyourbusinessphone;
+	}
+	
+	public WebElement getaddyourbusinesspassword()  {
+		return addyourbusinesspassword;
+	}
+	
+	public WebElement getaddyourbusinesssignbtn()  {
+		return addyourbusinesssignbtn;
+	}
+	
+	public WebElement getaddyourbusinessespage() {
+		return addyourbusinessespage;
+	}
+	public WebElement getpricingplanpage() {
+		return pricingplanpage;
+	}
+	public WebElement gethowitworkspage() {
+		return howitworkspage;
+	}
+	public List<WebElement> getBusinessCards() {
+		return businessCards;
 	}
 	public void scrollToFooter() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;

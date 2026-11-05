@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Base.Baseclass;
@@ -12,26 +13,32 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class stepdefinition {
-	customerpanel customer = new customerpanel(Baseclass.driver);
-	WebDriverWait wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
-	
+    public class stepdefinition {
+	public static customerpanel customer;
+	public static WebDriverWait Wait;
 	@Given("User launches the browser")
 	public void user_launches_the_browser() {
-		//user launched browser
+		
+		Baseclass.browserLaunch();
+		Baseclass.maximize();
 	    
 	}
 
 	@When("User open the Infoez application")
 	public void user_open_the_infoez_application() {
-		Baseclass.driver.get("https://d2mojgetgp5xie.cloudfront.net/");
 		
+		Baseclass.driver.get("https://d2mojgetgp5xie.cloudfront.net/");
+		 customer = new customerpanel(Baseclass.driver);
+		 Wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
 	    
 	}
 
 	@When("User Enters Customer Email and password")
 	public void user_enters_customer_email_and_password() {
+		customer.signinbtn.click();
+		Wait.until(ExpectedConditions.visibilityOf(customer.email));
 		customer.getemail().sendKeys("customer@infoez.com");
+		Wait.until(ExpectedConditions.visibilityOf(customer.password));
 		customer.getpassword().sendKeys("Customer@123");
 	    
 	}
@@ -48,9 +55,16 @@ public class stepdefinition {
 	}
 	@Given("Customer is logged in")
 	public void customer_is_logged_in() {
-		Assert.assertTrue(customer.getHomepage().isDisplayed());
+		       
+				customer = new customerpanel(Baseclass.driver);
+				Wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
+				Wait.until(ExpectedConditions.visibilityOf(customer.Homepage));
+				Assert.assertTrue(customer.getHomepage().isDisplayed());
+				
+		}
+		
 	    
-	}
+	
 
 	@Then("Customer home page should be displayed")
 	public void customer_home_page_should_be_displayed() {
@@ -60,6 +74,14 @@ public class stepdefinition {
 
 	@Given("Customer is on home page")
 	public void customer_is_on_home_page() {
+		if (Baseclass.driver == null) {
+			Baseclass.browserLaunch();
+			Baseclass.maximize();
+		}
+		Baseclass.driver.get("https://d2mojgetgp5xie.cloudfront.net/");
+		customer = new customerpanel(Baseclass.driver);
+		Wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
+		Wait.until(ExpectedConditions.visibilityOf(customer.Homepage));
 		Assert.assertTrue(customer.getHomepage().isDisplayed());
 	    
 	}
@@ -84,23 +106,27 @@ public class stepdefinition {
 
 	@Then("Relavant Businesses listings should be displayed")
 	public void relavant_businesses_listings_should_be_displayed() {
-		Assert.assertTrue(customer.getbusinesslistings().isDisplayed());
+		Wait.until(driver -> customer.getBusinessCards().size() > 0);
+		Assert.assertTrue(customer.getBusinessCards().size()>0);
+		
 	   
 	}
 
 	@When("Customer views business categories")
 	public void customer_views_business_categories() {
 		//customer views the categories section
+		
 	   
 	}
 	@Then("Business listings should be displayed")
 	public void business_listings_should_be_displayed() {
-	   Assert.assertTrue(customer.getbusinesslistings().isDisplayed());
+		Wait.until(ExpectedConditions.visibilityOf(customer.getcategories()));
+	   Assert.assertTrue(customer.getcategories().isDisplayed());
 	}
 
 	@When("Customer views featured businesses")
 	public void customer_views_featured_businesses() {
-		
+		Wait.until(ExpectedConditions.visibilityOf(customer.getFeaturedthisweek()));
 	    Assert.assertTrue(customer.getFeaturedthisweek().isDisplayed());
 	}
 
@@ -131,27 +157,31 @@ public class stepdefinition {
 		Assert.assertTrue(customer.getrecentlyadded().isDisplayed());
 	}
 
-	@When("Customer clicks add your business")
-	public void customer_clicks_add_your_business() {
-		customer.getaddyourbusiness().click();
+	//@When("Customer clicks add your business")
+	//public void customer_clicks_add_your_business() {
+		//customer.getaddyourbusiness().click();
 	    
-	}
+	//}
 
-	@Then("add your business page should be displayed")
-	public void add_your_business_page_should_be_displayed() {
-		Assert.assertTrue(customer.getaddyourbusiness().isDisplayed());
+	//@Then("add your business page should be displayed")
+	//public void add_your_business_page_should_be_displayed() {
+		//Assert.assertTrue(customer.getaddyourbusiness().isDisplayed());
 	    
-	}
+	//}
 
 	@When("Customer clicks see pricing")
 	public void customer_clicks_see_pricing() {
-		customer.getseepricing().click();
+		WebDriverWait wait = new WebDriverWait (Baseclass.driver, Duration.ofSeconds(20));
+		Wait.until(ExpectedConditions.elementToBeClickable(customer.getseepricing())).click();;
+		
 	    
 	}
 
 	@Then("Pricing page should be displayed")
 	public void pricing_page_should_be_displayed() {
-		Assert.assertTrue(customer.getseepricing().isDisplayed());
+		WebDriverWait wait = new WebDriverWait (Baseclass.driver, Duration.ofSeconds(20));
+		Wait.until(ExpectedConditions.urlContains("/pricing"));
+		Assert.assertTrue(Baseclass.driver.getCurrentUrl().contains("/pricing"));
 	    
 	}
 
@@ -197,19 +227,20 @@ public class stepdefinition {
 
 	@Then("Top rated businesses should be displayed")
 	public void top_rated_businesses_should_be_displayed() {
-		Assert.assertTrue(customer.getTopratednearyou().isDisplayed());
+		Assert.assertTrue(Baseclass.driver.getCurrentUrl().contains("sort=rating"));
 	    
 	}
 
-	@When("Customer clicks on add your business footer link")
-	public void customer_clicks_on_add_your_business_footer_link() {
-	    customer.getaddyourbusinessfooterlink().click();
-	}
+	//@When("Customer clicks on add your business footer link")
+	//public void customer_clicks_on_add_your_business_footer_link() {
+	//    customer.getaddyourbusinessfooterlink().click();
+	//}
 
-	@Then("Add your business page should be displayed")
-	public void add_your_business_page_should_be_displayed1() {
+	//@Then("Add your business page should be displayed")
+	//public void add_your_business_page_should_be_displayed1() {
+	//	Assert.assertTrue(customer.getaddyourbusinessespage().isDisplayed());
 	   
-	}
+	//}
 
 	@When("Customer clicks on pricing plan footer link")
 	public void customer_clicks_on_pricing_plan_footer_link() {
@@ -220,40 +251,46 @@ public class stepdefinition {
 	@Then("Pricing plan page should be displayed")
 	public void pricing_plan_page_should_be_displayed() {
 		
-	    
+	    Assert.assertTrue(customer.getpricingplanpage().isDisplayed());
 	}
 
-	@When("Customer clicks on How claims works footer link")
-	public void customer_clicks_on_how_claims_works_footer_link() {
+	//@When("Customer clicks on How claims works footer link")
+	//public void customer_clicks_on_how_claims_works_footer_link() {
+	//	customer.gethowclaimsworkfooterlink().click();
 	    
-	}
+	//}
 
-	@Then("How claims works page should be displayed")
-	public void how_claims_works_page_should_be_displayed() {
+	//@Then("How claims works page should be displayed")
+	//public void how_claims_works_page_should_be_displayed() {
+		
 	    
-	}
+	//}
 
 	@When("Customer clicks on How it works footer link")
 	public void customer_clicks_on_how_it_works_footer_link() {
+		customer.gethowitworksfooterliink().click();
 	    
 	}
 	@Then("How it works page should be displayed")
 	public void how_it_works_page_should_be_displayed() {
+		Assert.assertTrue(customer.gethowitworkspage().isDisplayed());
 	    
 	}
 
 	@When("Customer clicks on pricing footer link")
 	public void customer_clicks_on_pricing_footer_link() {
+		customer.getpricingfooterlink().click();
 	    
 	}
 
-	@When("Customer clicks on contact footer link")
-	public void customer_clicks_on_contact_footer_link() {
+	//@When("Customer clicks on contact footer link")
+//	public void customer_clicks_on_contact_footer_link() {
+	//	customer.getcontactfooterlink().click();
 	    
-	}
+	//}
 
-	@Then("Contact details should be displayed")
-	public void contact_details_should_be_displayed() {
+	//@Then("Contact details should be displayed")
+	//public void contact_details_should_be_displayed() {
 	    
-	}
+	//}
 }

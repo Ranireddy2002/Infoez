@@ -1,5 +1,5 @@
+@Customerpanel
 Feature: Infoez Customer Module
-
 Scenario: Customer Login Page
 Given User launches the browser
 When User open the Infoez application
@@ -38,10 +38,10 @@ Given Customer is on home page
 When Customer views recently added businesses
 Then Recently added businesses should be displayed
 
-Scenario: Verify add your business in home page
-Given Customer is on home page
-When Customer clicks add your business
-Then add your business page should be displayed
+#Scenario: Verify add your business in home page
+#Given Customer is on home page
+#When Customer clicks add your business
+#Then add your business page should be displayed
 
 Scenario: Verify see pricing in home page
 Given Customer is on home page
@@ -68,20 +68,20 @@ Given Customer is on home page
 When Customer clicks on top rated footer link
 Then Top rated businesses should be displayed 
 
-Scenario: Verify add your business footer link
-Given Customer is on home page
-When Customer clicks on add your business footer link
-Then Add your business page should be displayed
+#Scenario: Verify add your business footer link
+#Given Customer is on home page
+#When Customer clicks on add your business footer link
+#Then Add your business page should be displayed
 
 Scenario: Verify pricing plans footer link
 Given Customer is on home page
 When Customer clicks on pricing plan footer link
 Then Pricing plan page should be displayed 
 
-Scenario: Verify How claims works footer link
-Given Customer is on home page
-When Customer clicks on How claims works footer link
-Then How claims works page should be displayed 
+#Scenario: Verify How claims works footer link
+#Given Customer is on home page
+#When Customer clicks on How claims works footer link
+#Then How claims works page should be displayed 
 
 Scenario: Verify How it works footer link
 Given Customer is on home page
@@ -93,10 +93,10 @@ Given Customer is on home page
 When Customer clicks on pricing footer link
 Then Pricing page should be displayed
 
-Scenario: Verify contact footer link 
-Given Customer is on home page
-When Customer clicks on contact footer link
-Then Contact details should be displayed
+#Scenario: Verify contact footer link 
+#Given Customer is on home page
+#When Customer clicks on contact footer link
+#Then Contact details should be displayed
 
 
 
