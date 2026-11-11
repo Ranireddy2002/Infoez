@@ -19,7 +19,7 @@ public class customerpanel {
 		PageFactory.initElements(driver, this);
 		
 	}
-	@FindBy(xpath = "//button[@data-testid='header-signin-btn']")
+	@FindBy(xpath = "//button[@data-testid = 'header-signin-btn']")
 	public WebElement signinbtn;
 	
 	@FindBy(xpath = "//input[@type='email']")
@@ -28,7 +28,7 @@ public class customerpanel {
 	@FindBy(xpath = "//input[@type='password']")
 	public WebElement password;
 	
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//button[@data-testid = 'login-submit-btn']")
 	public WebElement signin;
 	
 	@FindBy(xpath = "//div [@class='leading-tight']")
@@ -152,9 +152,85 @@ public class customerpanel {
 	public WebElement howitworkspage;
 	
 	@FindBy(xpath = "//a[starts-with(@data-testid,'business-card-')]")
-	List<WebElement> businessCards;
+	public List<WebElement> businessCards;
+	
+	@FindBy(xpath = "//a[@data-testid='nav-explore']")
+	public WebElement explore;
+	
+	@FindBy(xpath = "//input[@data-testid='search-query-input']")
+	public WebElement explorebusinessearchield;
+	
+	@FindBy(xpath = "//input[@data-testid='search-location-input']")
+	public WebElement explorelocationfield;
+	
+	@FindBy(xpath = "//button[@data-testid='search-submit-btn']")
+	public WebElement exploresearchbtn;
+	
+	@FindBy(xpath = "//button[@data-testid='filter-category']")
+	public WebElement filtercategory;
+	
+	@FindBy(xpath = "//button[@data-testid='filter-sort']" )
+	public WebElement filtersort;
+	
+	@FindBy(xpath = "//button[@data-testid='filter-min-rating']")
+	public WebElement filtermin;
+	
+	@FindBy(xpath = "//input[@data-testid='filter-verified']")
+	public WebElement filterverifiedonly;
+	
+	@FindBy(xpath ="//*[@id=\"root\"]/div/main/div/div[1]/div")
+	public WebElement explorepage;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div/div/a")
+	public WebElement matchingbusiness;
+	
+	@FindBy(xpath = "//*[normalize-space()='4.0+']")
+	public WebElement rating4;
+	
+	@FindBy(xpath = "//a[@data-testid = 'nav-near-me']")
+	public WebElement nearme;
+	
+	@FindBy(xpath = "//button[@data-testid = 'map-locate-btn']")
+	public WebElement usemylocationbtn;
+	
+	@FindBy(xpath = "//input[@data-testid = 'map-search-input']")
+	public WebElement  searchnearby;
+	
+	@FindBy(xpath = "//button[@data-testid = 'map-category']")
+	public WebElement allcategoriesbtn;
+	
+	@FindBy(xpath = "//button[@data-testid = 'map-radius']")
+	public WebElement withinKMbtn;
+	
+	@FindBy(xpath = "//button[@data-testid = 'map-apply-btn']")
+	public WebElement mapapplybtn;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]/svg")
+	public WebElement allcategoriesdropdownbtn;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]/span")
+	public WebElement restaurants;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[2]/svg")
+	public WebElement withinKMdropdownbtn;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[2]/span")
+	public WebElement within25km;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div")
+	public WebElement nearmepage;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/aside")
+	public WebElement usemylocationbusiness;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/aside")
+	public WebElement filteredbusines;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[1]/div")
+	public WebElement nearmeconfirm;
 	
 	//Getters
+	
 	public WebElement getsigninbtn() {
 		return signinbtn;
 	}
@@ -268,7 +344,6 @@ public class customerpanel {
 	public WebElement getfullname()  {
 		return fullname;
 	}
-	
 	public WebElement getaddyourbusinessemail()  {
 		return addyourbusinessemail;
 	}
@@ -300,6 +375,81 @@ public class customerpanel {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
-		
+	public WebElement getexplore() {
+		return explore;
+	}
+	public WebElement getexplorebusinessearchield() {
+		return explorebusinessearchield;
+	}
+	public WebElement getexplorelocationfield() {
+		return explorelocationfield;
+	}
+	public WebElement getexploresearchbtn() {
+		return exploresearchbtn;
+	}
+	public WebElement getfiltercategory() {
+		return filtercategory;
+	}
+	public WebElement getfiltersort() {
+		return filtersort;
+	}
+	public WebElement getfiltermin() {
+		return filtermin;
+	}
+	
+	public WebElement getfilterverifiedonly() {
+		return filterverifiedonly;
+	}
+	public WebElement getexplorepage() {
+		return explorepage;
+	}	
+	public WebElement getmatchingbusiness() {
+		return matchingbusiness;
+	}
+	public WebElement getrating4() {
+		return rating4;
+	}
+	public WebElement getnearme() {
+		return nearme;
+	}
+	public WebElement getusemylocationbtn() {
+		return usemylocationbtn;
+	}
+	public WebElement getsearchnearby() {
+		return searchnearby;
+	}
+	public WebElement getallcategoriesbtn() {
+		return allcategoriesbtn;
+	}
+	public WebElement getwithinKMbtn() {
+		return withinKMbtn;
+	}
+	public WebElement getallcategoriesdropdownbtn() {
+		return allcategoriesdropdownbtn;
+	}
+	public WebElement getwithinKMdropdownbtn() {
+		return withinKMdropdownbtn;
+	}
+	public WebElement getrestaurants() {
+		return restaurants;
+	}
+	public WebElement getwithin25km() {
+		return within25km;
+	}
+	public WebElement getnearmepage() {
+		return nearmepage;
+	}
+	public WebElement getmapapplybtn() {
+		return mapapplybtn;
+	}
+	public WebElement getusemylocationbusiness() {
+		return usemylocationbusiness;
+	}
+	public WebElement getfilteredbusines() {
+		return filteredbusines;
+	}
+	public WebElement getnearmeconfirm() {
+		return nearmeconfirm;
+	}
 
 }

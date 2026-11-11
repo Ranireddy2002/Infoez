@@ -1,5 +1,6 @@
 @Customerpanel
 Feature: Infoez Customer Module
+
 Scenario: Customer Login Page
 Given User launches the browser
 When User open the Infoez application
@@ -98,33 +99,83 @@ Then Pricing page should be displayed
 #When Customer clicks on contact footer link
 #Then Contact details should be displayed
 
+Scenario: Verify explore page
+When Customer clicks on explore
+Then Explore page should be displayed
+And explore business listings should be displayed
 
+Scenario: Search Businesses
+When Customer enters business name
+And Customer enters city name
+And Customer clicks on explore search button
+Then Matching business results should be displayed
 
+Scenario: Verify filter section
+Given Customer is on Explore page 
+Then Filter section should be displayed
+And Category dropdown should be displayed
+And Sort by dropdown should be displayed
+And Min rating dropdown should be displayed
+And Verified only checkbox should be displayed
 
+Scenario: Filter Businesses by category
+Given Customer is on explore page
+When Customer selects a category
+Then Businesses related to selected category should be displayed
 
+Scenario: Sort By Businesses
+Given Customer is on explore page
+When Customer selects a sorting option
+Then Businesses should be sorted accordinng to the selected option
 
+Scenario: Filter businesses by Min Rating
+Given Customer is on explore page
+When Customer selects a min rating
+Then Businesses matching the selected rating should be displayed
 
+Scenario: Filter Verified Businesses 
+Given Customer is on explore page
+When Customer selects verified only checkbox
+Then Only verified businesses should be displayed
 
+Scenario: Verify Near me page
+Given User launches the browser
+When User open the Infoez application
+And  Customer clicks on near me
+Then Near me page should be displayed 
+And Search near by field should be displayed
+And Near me Category dropdown should be displayed
+And Distance dropdown should be displayed
+And Apply button should be displayed
+And Use my location button should be displayed 
+And Business results should be displayed
 
+Scenario: Search nearby businesses
+When Customer enters a business name in search nearby field
+Then Matching nearby businesses should be displayed
 
+Scenario: Filter businesses by category
+#Given User launches the browser
+#When User open the Infoez application
+When  Customer clicks on near me
+And  Customer selects a category from category dropdown
+And Customer clicks apply button
+Then Businesses matching the selected category should be displayed
 
+Scenario: Filter businesses by distance
+#Given User launches the browser
+#When User open the Infoez application
+When Customer selects a distance from distance dropdown
+And Customer clicks apply button
+Then Businesses within the selected distance should be displayed
 
+#Scenario:  Apply filters
+#When Customer selects a category
+#And Customer selects a distance
+#And Customer clicks apply button
+#Then Results should be filtered based on selected criteria
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Scenario: Use my location
+When Customer clicks Use my location button
+Then Browser should request location permission
+And Nearby businesses should be displayed based on current location
