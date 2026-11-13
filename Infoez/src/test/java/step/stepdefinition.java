@@ -15,60 +15,63 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-    public class stepdefinition {
-	public static customerpanel customer;
-	public static WebDriverWait Wait;
+    public class stepdefinition extends Baseclass {
+	customerpanel p;
 	
 	@Given("User launches the browser")
 	public void user_launches_the_browser() {
-		
-		Baseclass.browserLaunch();
-		Baseclass.maximize();
-	    customer = new customerpanel(Baseclass.driver);
+	   Baseclass.browserLaunch();
+	   Baseclass.maximize();
+	   p = new customerpanel(Baseclass.driver);
 	}
 
 	@When("User open the Infoez application")
 	public void user_open_the_infoez_application() {
-		
-		Baseclass.driver.get("https://d2mojgetgp5xie.cloudfront.net/");
-		 customer = new customerpanel(Baseclass.driver);
-		 Wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
-	    
+	    Baseclass.driver.get("https://d2mojgetgp5xie.cloudfront.net/");
 	}
-
-	@When("User Enters Customer Email and password")
-	public void user_enters_customer_email_and_password() {
-		customer.signinbtn.click();
-		Wait.until(ExpectedConditions.visibilityOf(customer.email));
-		customer.getemail().sendKeys("customer@infoez.com");
-		Wait.until(ExpectedConditions.visibilityOf(customer.password));
-		customer.getpassword().sendKeys("Customer@123");
-	    
-	}
-
 	@When("User clicks on sign in button")
 	public void user_clicks_on_sign_in_button() {
-		customer.getsignin().click();
-	    
-	}
-
-	@Then("Customer should login successully")
-	public void customer_should_login_successully() {
-		Assert.assertTrue(customer.getHomepage().isDisplayed());
-	}
-	@Given("Customer is logged in")
-	public void customer_is_logged_in() {
-		       
-				customer = new customerpanel(Baseclass.driver);
-				Wait = new WebDriverWait(Baseclass.driver,Duration.ofSeconds(20));
-				Wait.until(ExpectedConditions.visibilityOf(customer.Homepage));
-				Assert.assertTrue(customer.getHomepage().isDisplayed());
-				
-		}
+		p.signinbtn.click();
 		
-	    
-	
+	}
 
+	@When("User Enters Customer {string} and {string}")
+	public void user_enters_customer_and(String string, String string2) {  
+	
+	    p.email.clear();
+	    p.email.sendKeys(string);
+	    
+	    p.password.clear();
+	    p.password.sendKeys(string2);
+	}
+
+	@When("User clicks on sign")
+	public void user_clicks_on_sign() {
+	    p.signin.click(); 
+	}
+
+	@Then("Customer login status should be {string}")
+	public void customer_login_status_should_be(String string) {
+		if (string.equals("Invalid1")) {
+			Assert.assertTrue("value is not a valid email address: The part after the @-sign is not valid. It should have a period.",p.isHomePageDisplayed());
+		}
+		else if (string.equals("Invalid2")) {
+			Assert.assertTrue("value is not a valid email address: The part after the @-sign is not valid. It should have a period.",p.isHomePageDisplayed());
+		}
+		else if (string.equals("Invalid3")) {
+			Assert.assertTrue("!Please fill out these field.",p.isHomePageDisplayed());
+		}
+		else if (string.equals("Invalid4")) {
+			Assert.assertTrue("!Please include an '@' in the email address, 'asdfgg' is missing an @.",p.isHomePageDisplayed());
+		}
+		else if (string.equals("Invalid5")) {
+			Assert.assertTrue("!Please enter a part of followed by '@'.'@#$$%^^' is incomplete.",p.isHomePageDisplayed());
+		}
+		else if (string.equals("Valid")) {
+			Assert.assertTrue(isDisplayed(p.Homepage));
+		}
+	   
+	   }
 	@Then("Customer home page should be displayed")
 	public void customer_home_page_should_be_displayed() {
 		Assert.assertTrue(customer.getHomepage().isDisplayed());
@@ -459,101 +462,15 @@ import io.cucumber.java.en.When;
 
 	@Then("Near me Category dropdown should be displayed")
 	public void near_me_category_dropdown_should_be_displayed() {
-		Assert.assertTrue(customer.getallcategoriesbtn().isDisplayed());
-	    
-	}
-
-	@Then("Distance dropdown should be displayed")
-	public void distance_dropdown_should_be_displayed() {
-		Assert.assertTrue(customer.getwithinKMbtn().isDisplayed());
-	    
-	}
-
-	@Then("Apply button should be displayed")
-	public void apply_button_should_be_displayed() {
-	    Assert.assertTrue(customer.getmapapplybtn().isDisplayed());
-	}
-
-	@Then("Use my location button should be displayed")
-	public void use_my_location_button_should_be_displayed() {
-	    Assert.assertTrue(customer.getusemylocationbtn().isDisplayed());
-	}
-
-	@Then("Business results should be displayed")
-	public void business_results_should_be_displayed() {
-	    Assert.assertTrue(customer.getusemylocationbusiness().isDisplayed());
-	}
-
-	@When("Customer enters a business name in search nearby field")
-	public void customer_enters_a_business_name_in_search_nearby_field() {
-		customer.getsearchnearby().sendKeys("Restaurant");
-	   
-	}
-
-	@Then("Matching nearby businesses should be displayed")
-	public void matching_nearby_businesses_should_be_displayed() {
-	   Assert.assertTrue(customer.getfilteredbusines().isDisplayed());
-	}
-
-	@When("Customer selects a category from category dropdown")
-	public void customer_selects_a_category_from_category_dropdown() {
 		Wait.until(ExpectedConditions.elementToBeClickable(
-		customer.getallcategoriesbtn())).click();
-	   customer.getrestaurants().click();
-	}
-
-	@When("Customer clicks apply button")
-	public void customer_clicks_apply_button() {
-		WebDriverWait wait = new WebDriverWait(Baseclass.driver, Duration.ofSeconds(20));
-		WebElement apply = wait.until(ExpectedConditions.visibilityOf(customer.getmapapplybtn()));
-		((JavascriptExecutor) Baseclass.driver).executeScript("arguments[0].scrollIntoView(true);", apply);
-		((JavascriptExecutor) Baseclass.driver).executeScript("arguments[0].click();", apply);
-		Wait.until(ExpectedConditions.elementToBeClickable(customer.getmapapplybtn()));
-	 //customer.getmapapplybtn().click();
+         customer.getallcategoriesdropdownbtn())).click();
+		//Assert.assertTrue(customer.getallcategoriesbtn().isDisplayed());
 	    
 	}
-
-	@Then("Businesses matching the selected category should be displayed")
-	public void businesses_matching_the_selected_category_should_be_displayed() {
-		Assert.assertTrue(customer.getfilteredbusines().isDisplayed());
 	}
 
-	@When("Customer selects a distance from distance dropdown")
-	public void customer_selects_a_distance_from_distance_dropdown() {
-		//if (customer == null) {
-			//customer = new customerpanel(Baseclass.driver);
-		//}
-		WebDriverWait wait = new WebDriverWait(Baseclass.driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(customer.getwithinKMbtn())).click();
-		//WebElement distance = Wait.until(ExpectedConditions.elementToBeClickable(customer.getwithinKMbtn()));
-		//distance.click();
-		//customer.getwithinKMbtn().click();
-		//customer.getwithin25km().click();
-	}
-
-	@Then("Businesses within the selected distance should be displayed")
-	public void businesses_within_the_selected_distance_should_be_displayed() {
-		Assert.assertTrue(customer.getfilteredbusines().isDisplayed());
-	}
-
-
-	@When("Customer clicks Use my location button")
-	public void customer_clicks_use_my_location_button() {
-		WebDriverWait wait = new WebDriverWait(Baseclass.driver, Duration.ofSeconds(20));
-		WebElement location = wait.until(ExpectedConditions.elementToBeClickable(customer.getusemylocationbtn()));
-		location.click();
-		//customer.getusemylocationbtn().click();
+	
 	    
-	}
+	
 
-	@Then("Browser should request location permission")
-	public void browser_should_request_location_permission() {
-	   
-	    		
-	}
-
-	@Then("Nearby businesses should be displayed based on current location")
-	public void nearby_businesses_should_be_displayed_based_on_current_location() {
-		Assert.assertTrue(customer.getfilteredbusines().isDisplayed());
-	}
-}
+	

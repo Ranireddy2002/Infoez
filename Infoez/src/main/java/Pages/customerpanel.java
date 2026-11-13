@@ -22,10 +22,10 @@ public class customerpanel {
 	@FindBy(xpath = "//button[@data-testid = 'header-signin-btn']")
 	public WebElement signinbtn;
 	
-	@FindBy(xpath = "//input[@type='email']")
+	@FindBy(xpath = "//input[@id = 'email']")
 	public WebElement email;
 	
-	@FindBy(xpath = "//input[@type='password']")
+	@FindBy(xpath = "//input[@data-testid='login-password']")
 	public WebElement password;
 	
 	@FindBy(xpath = "//button[@data-testid = 'login-submit-btn']")
@@ -196,8 +196,8 @@ public class customerpanel {
 	@FindBy(xpath = "//input[@data-testid = 'map-search-input']")
 	public WebElement  searchnearby;
 	
-	@FindBy(xpath = "//button[@data-testid = 'map-category']")
-	public WebElement allcategoriesbtn;
+	//@FindBy(xpath = "//button[@data-testid = 'map-category']")
+	//public WebElement allcategoriesbtn;
 	
 	@FindBy(xpath = "//button[@data-testid = 'map-radius']")
 	public WebElement withinKMbtn;
@@ -205,7 +205,7 @@ public class customerpanel {
 	@FindBy(xpath = "//button[@data-testid = 'map-apply-btn']")
 	public WebElement mapapplybtn;
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]/svg")
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]")
 	public WebElement allcategoriesdropdownbtn;
 	
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]/span")
@@ -228,6 +228,15 @@ public class customerpanel {
 	
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[1]/div")
 	public WebElement nearmeconfirm;
+	
+	@FindBy (xpath = "//a[@data-testid = 'nav-how-it-works']")
+	public WebElement howitworks;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[1]")
+	public WebElement startexploringbtn;
+	
+	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[2]")
+	public WebElement listyourbusinessesbtn;
 	
 	//Getters
 	
@@ -418,9 +427,9 @@ public class customerpanel {
 	public WebElement getsearchnearby() {
 		return searchnearby;
 	}
-	public WebElement getallcategoriesbtn() {
-		return allcategoriesbtn;
-	}
+	//public WebElement getallcategoriesbtn() {
+		//return allcategoriesbtn;
+	//}
 	public WebElement getwithinKMbtn() {
 		return withinKMbtn;
 	}
@@ -450,6 +459,19 @@ public class customerpanel {
 	}
 	public WebElement getnearmeconfirm() {
 		return nearmeconfirm;
+	}
+	public WebElement gethowitworks() {
+		return howitworks;
+	}
+	public WebElement getstartexploringbtn() {
+		return startexploringbtn;
+	}
+	public WebElement getlistyourbusinessesbtn() {
+		return listyourbusinessesbtn;
+	}
+	public boolean isHomePageDisplayed() {
+		return signin.isDisplayed();
+		
 	}
 
 }

@@ -17,9 +17,12 @@ public class Baseclass {
 	public static WebDriver driver;
 	
 	//Browser Methods 
-	public static WebDriver browserLaunch() {
-		driver = new ChromeDriver();
-		return driver;
+	public static void browserLaunch() {
+		if (driver == null) {
+			driver = new ChromeDriver();
+		}
+		//driver = new ChromeDriver();
+		//return driver;
 		
 	}
 	public static void maximize() {
@@ -131,6 +134,12 @@ public class Baseclass {
 	 public static boolean isMultiple(WebElement element) {
 		 Select s = new Select(element);
 		 return s.isMultiple();
+	 }
+	 public void clearText(WebElement element) {
+		 element.clear();
+	 }
+	 public boolean isDisplayed(WebElement element) {
+		 return element.isDisplayed();
 	 }
 	 
 	 //Wait Methods 
