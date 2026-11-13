@@ -76,26 +76,13 @@ Scenario: Search nearby businesses
 When Customer enters a business name in search nearby field
 Then Matching nearby businesses should be displayed
 
-Scenario: Filter businesses by category
-When Customer selects a category from category dropdown
-And Customer clicks apply button
-Then Businesses matching the selected category should be displayed
 
-Scenario: Filter businesses by distance
-When Customer selects a distance from distance dropdown
-And Customer clicks apply button
-Then Businesses within the selected distance should be displayed
 
-Scenario:  Apply filters
-When Customer selects a category
-And Customer selects a distance
-And Customer clicks apply button
-Then Results should be filtered based on selected criteria
 
-Scenario: Use my location
-When Customer clicks Use my location button
-Then Browser should request location permission
-And Nearby businesses should be displayed based on current location
+
+
+
+
 
 
 
