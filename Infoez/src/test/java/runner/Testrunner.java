@@ -9,14 +9,14 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features ="src/test/java/Features/Customer.feature",
 		glue ={"step"},
-		tags ="@Login",
+		tags ="@Customerpanel",
 				plugin = {
 		                "pretty",
 		                "html:target/cucumber-report.html",
 		         
 		                "json:target/cucumber.json" },
 		        
-		monochrome = true                                                                                     ,
+		monochrome = true,                                                                                     
 		        publish = true
 		)
 

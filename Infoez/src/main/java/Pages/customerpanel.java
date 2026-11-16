@@ -157,6 +157,15 @@ public class customerpanel {
 	@FindBy(xpath = "//a[@data-testid='nav-explore']")
 	public WebElement explore;
 	
+	@FindBy(xpath = "//a[@data-testid = 'nav-near-me']")
+	public WebElement nearme;
+	
+	@FindBy (xpath = "//a[@data-testid = 'nav-how-it-works']")
+	public WebElement howitworks;
+	
+	@FindBy (xpath = "//a[@data-testid = 'nav-pricing']")
+	public WebElement pricing;
+	
 	@FindBy(xpath = "//input[@data-testid='search-query-input']")
 	public WebElement explorebusinessearchield;
 	
@@ -186,9 +195,6 @@ public class customerpanel {
 	
 	@FindBy(xpath = "//*[normalize-space()='4.0+']")
 	public WebElement rating4;
-	
-	@FindBy(xpath = "//a[@data-testid = 'nav-near-me']")
-	public WebElement nearme;
 	
 	@FindBy(xpath = "//button[@data-testid = 'map-locate-btn']")
 	public WebElement usemylocationbtn;
@@ -229,17 +235,19 @@ public class customerpanel {
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[1]/div")
 	public WebElement nearmeconfirm;
 	
-	@FindBy (xpath = "//a[@data-testid = 'nav-how-it-works']")
-	public WebElement howitworks;
-	
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[1]")
 	public WebElement startexploringbtn;
 	
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[2]")
 	public WebElement listyourbusinessesbtn;
 	
-	//Getters
+	@FindBy (xpath = "//div[@data-title and normalize-space()='Welcome back!']")
+	public WebElement Welcomeback;
 	
+	//Getters
+	public WebElement Welcomeback() {
+		return Welcomeback;
+	}
 	public WebElement getsigninbtn() {
 		return signinbtn;
 	}
@@ -472,6 +480,9 @@ public class customerpanel {
 	public boolean isHomePageDisplayed() {
 		return signin.isDisplayed();
 		
+	}
+	public WebElement getpricing() {
+		return pricing;
 	}
 
 }
