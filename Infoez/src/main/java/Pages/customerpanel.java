@@ -43,92 +43,14 @@ public class customerpanel {
 	@FindBy(xpath = "//button[@data-testid='hero-search-submit']")
 	public WebElement searchbtn;
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/main/div/div[2]/div/div/a")
-	public WebElement businesslistings;
-	
 	@FindBy(id = "categories")
 	public WebElement categories;
-	
-	@FindBy(xpath = "//*[@id=\"categories\"]/div[2]/a[1]")
-	public WebElement Restaurants;
-	
-	@FindBy(xpath = "//*[@id=\"categories\"]/div[2]/a[2]")
-	public WebElement Beautyandspa;
-	
-	@FindBy(xpath = "//h2[normalize-space()='Featured this week']")
-	public WebElement Featuredthisweek;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[3]/div/div[2]/a[1]")
-	public WebElement ironpeakgym;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[3]/div/div[2]/a[2]")
-	public WebElement Bloombeautystudio;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[4]/div/div[1]/div/h2")
-	public WebElement Topratednearyou;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[4]/div/div[2]/a[4]")
-	public WebElement vedhamart;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[4]/div/div[2]/a[7]")
-	public WebElement sivamcafe;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[5]/div/div[1]/div/h2")
-	public WebElement recentlyadded;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[5]/div/div[2]/a[1]")
-	public WebElement Hotel;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/section[5]/div/div[2]/a[2]")
-	public WebElement cafe;
 	
 	@FindBy(xpath = "//a[@data-testid='cta-add-business']")
 	public WebElement addyourbusiness;
 	
 	@FindBy(xpath = "//a[@href='/pricing' and normalize-space()='See pricing']")
 	public WebElement seepricing;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer")
-	public WebElement footerlinksection;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[2]/ul/li[1]/a")
-	public WebElement Allbusinessesfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[2]/ul/li[2]/a")
-	public WebElement featuredfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[2]/ul/li[3]/a")
-	public WebElement Topratedfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[3]/ul/li[1]/a")
-	public WebElement addyourbusinessfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[3]/ul/li[2]/a")
-	public WebElement pricingplansfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[3]/ul/li[3]/a")
-	public WebElement howclaimsworkfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[4]/ul/li[1]/a")
-	public WebElement howitworksfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[4]/ul/li[2]/a")
-	public WebElement pricingfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/footer/div[1]/div[4]/ul/li[3]/a")
-	public WebElement contactfooterlink;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div/h1")
-	public WebElement Allbusinesses;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div/h1")
-	public WebElement Featuredbusinesses;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div/h1")
-	public WebElement Topratedbusinesses;
-	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main")
-	public WebElement addyourbusinessespage;
 	
 	@FindBy(xpath = "//input[@required data-testid='register-name']")
 	public WebElement fullname;
@@ -172,7 +94,7 @@ public class customerpanel {
 	@FindBy(xpath = "//input[@data-testid='search-location-input']")
 	public WebElement explorelocationfield;
 	
-	@FindBy(xpath = "//button[@data-testid='search-submit-btn']")
+	@FindBy(xpath = "//button[@data-testid='filter-category']")
 	public WebElement exploresearchbtn;
 	
 	@FindBy(xpath = "//button[@data-testid='filter-category']")
@@ -187,11 +109,9 @@ public class customerpanel {
 	@FindBy(xpath = "//input[@data-testid='filter-verified']")
 	public WebElement filterverifiedonly;
 	
-	@FindBy(xpath ="//*[@id=\"root\"]/div/main/div/div[1]/div")
+	@FindBy(xpath ="//*[@id=\"root\"]/div/header/div/nav/a[1]")
 	public WebElement explorepage;
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div/div/a")
-	public WebElement matchingbusiness;
 	
 	@FindBy(xpath = "//*[normalize-space()='4.0+']")
 	public WebElement rating4;
@@ -211,40 +131,45 @@ public class customerpanel {
 	@FindBy(xpath = "//button[@data-testid = 'map-apply-btn']")
 	public WebElement mapapplybtn;
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]")
-	public WebElement allcategoriesdropdownbtn;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[1]/span")
-	public WebElement restaurants;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[2]/svg")
-	public WebElement withinKMdropdownbtn;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[2]/button[2]/span")
-	public WebElement within25km;
-	
 	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div")
 	public WebElement nearmepage;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/aside")
-	public WebElement usemylocationbusiness;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/aside")
-	public WebElement filteredbusines;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[1]/div")
-	public WebElement nearmeconfirm;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[1]")
-	public WebElement startexploringbtn;
-	
-	@FindBy (xpath = "//*[@id=\"root\"]/div/main/div/div[3]/a[2]")
-	public WebElement listyourbusinessesbtn;
 	
 	@FindBy (xpath = "//div[@data-title and normalize-space()='Welcome back!']")
 	public WebElement Welcomeback;
 	
+	@FindBy (xpath = "//a[contains(@class,'group') and contains(.,'Mira Studio')]")
+	public WebElement mirastudio;
+	
+	@FindBy (xpath = "//a[contains(@data-testid,'business-card') and contains(.,'Aroma cafe')]")
+	public WebElement Aromacafe;
+	
+	@FindBy (xpath = "//h3[normalize-space()='No businesses found']")
+	public WebElement Nobusinessesfound;
+	
+	@FindBy (xpath = "//a[starts-with(@data-testid,'business-card-')]")
+	public WebElement businesscard;
+	
+	@FindBy(xpath = "//span[text()='Home Services']")
+	WebElement homeservices;
+	
+	
+	
 	//Getters
+	public WebElement gethomeservices() {
+		return homeservices;
+	}
+	public WebElement getbusinesscard() {
+		return businesscard;
+	}
+	public WebElement getNobusinessesfound() {
+		return Nobusinessesfound;
+	}
+	public WebElement getAromacafe() {
+		return Aromacafe;
+	}
+	public WebElement getmirastudio() {
+		return mirastudio;
+	}
 	public WebElement Welcomeback() {
 		return Welcomeback;
 	}
@@ -275,88 +200,14 @@ public class customerpanel {
 	public WebElement getcategories() {
 		return categories;
 	}
-	public WebElement getRestaurants() {
-		return Restaurants;
-	}
-	public WebElement getBeautyandspa() {
-		return Beautyandspa;
-	}
-	public WebElement getFeaturedthisweek() {
-		return Featuredthisweek;
-	}
-	public WebElement getironpeakgym() {
-		return ironpeakgym;
-	}
-	public WebElement getbusinesslistings() {
-		return businesslistings;
-	}
-	public WebElement getBloombeautystudio() {
-		return Bloombeautystudio;
-	}
-	public WebElement getTopratednearyou() {
-		return Topratednearyou;
-	}
-	public WebElement getvedhamart() {
-		return vedhamart;
-	}
-	public WebElement getsivamcafe() {
-		return sivamcafe;
-	}
-	public WebElement getrecentlyadded() {
-		return recentlyadded;
-	}
-	public WebElement getHotel() {
-		return Hotel;
-	}
-	public WebElement getcafe() {
-		return cafe;
-	}
+	
 	public WebElement getaddyourbusiness() {
 		return addyourbusiness;
 	}
 	public WebElement getseepricing() {
 		return seepricing;
 	}
-	public WebElement getfooterlinksection() {
-		return footerlinksection;
-	}
-	public WebElement getAllbusinessesfooterlink() {
-		return Allbusinessesfooterlink;
-	}
-	public WebElement getfeaturedfooterlink() {
-		return featuredfooterlink;
-	}
-	public WebElement getTopratedfooterlink() {
-		return Topratedfooterlink;
-	}
-	public WebElement getaddyourbusinessfooterlink() {
-		return addyourbusinessfooterlink;
-	}
-	public WebElement getpricingplansfooterlink() {
-		return pricingplansfooterlink;
-	}
-	public WebElement gethowclaimsworkfooterlink() {
-		return howclaimsworkfooterlink;
-	}
 	
-	public WebElement gethowitworksfooterliink() {
-		return howitworksfooterlink;
-	}
-	public WebElement getpricingfooterlink() {
-		return pricingfooterlink;
-	}
-	public WebElement getcontactfooterlink() {
-		return contactfooterlink;
-	}
-	public WebElement getAllbusinesses() {
-		return Allbusinesses;
-	}
-	public WebElement getFeaturedbusinesses() {
-		return Featuredbusinesses;
-	}
-	public WebElement getTopratedbusinesses() {
-		return Topratedbusinesses;
-	}
 	
 	public WebElement getfullname()  {
 		return fullname;
@@ -376,9 +227,6 @@ public class customerpanel {
 		return addyourbusinesssignbtn;
 	}
 	
-	public WebElement getaddyourbusinessespage() {
-		return addyourbusinessespage;
-	}
 	public WebElement getpricingplanpage() {
 		return pricingplanpage;
 	}
@@ -420,9 +268,7 @@ public class customerpanel {
 	public WebElement getexplorepage() {
 		return explorepage;
 	}	
-	public WebElement getmatchingbusiness() {
-		return matchingbusiness;
-	}
+	
 	public WebElement getrating4() {
 		return rating4;
 	}
@@ -441,42 +287,18 @@ public class customerpanel {
 	public WebElement getwithinKMbtn() {
 		return withinKMbtn;
 	}
-	public WebElement getallcategoriesdropdownbtn() {
-		return allcategoriesdropdownbtn;
-	}
-	public WebElement getwithinKMdropdownbtn() {
-		return withinKMdropdownbtn;
-	}
-	public WebElement getrestaurants() {
-		return restaurants;
-	}
-	public WebElement getwithin25km() {
-		return within25km;
-	}
+	
 	public WebElement getnearmepage() {
 		return nearmepage;
 	}
 	public WebElement getmapapplybtn() {
 		return mapapplybtn;
 	}
-	public WebElement getusemylocationbusiness() {
-		return usemylocationbusiness;
-	}
-	public WebElement getfilteredbusines() {
-		return filteredbusines;
-	}
-	public WebElement getnearmeconfirm() {
-		return nearmeconfirm;
-	}
+	
 	public WebElement gethowitworks() {
 		return howitworks;
 	}
-	public WebElement getstartexploringbtn() {
-		return startexploringbtn;
-	}
-	public WebElement getlistyourbusinessesbtn() {
-		return listyourbusinessesbtn;
-	}
+	
 	public boolean isHomePageDisplayed() {
 		return signin.isDisplayed();
 		

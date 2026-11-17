@@ -32,18 +32,53 @@ And User clicks Howitworks
 And User clicks pricing 
 
 @Explore
+
+Scenario: Verify explore page
+Given User launches the browser
+When User clicks on explore
+Then Explore page should be displayed 
+
 Scenario Outline: Verify search functionality
 Given User is on explore page 
-When user enters business name "<Businessname>" in search field 
-And User enters city "<City>" in city field 
+When user enters "<Businessname>" in search field 
+And User enters "<City>" in city field 
 And User clicks on search button 
 Then Relevent businesses should be displayed 
 Examples:
-|Businessname    |City      |
-|Mira studio     |Chennai   |
-|@#$WER          |wertyu    |
-|                |Chennai   |
-|Aroma cafe      |          |
+|Businessname    |City      |Results |
+|Aroma cafe      |Banglore  |Valid   |
+|Mira studio     |Chennai   |Valid   |
+|                |Hyderabad |Valid   |
+|A2B             |          |Valid   |
+|@#$WER          |wertyu    |Invalid |
+
+Scenario: Verify category filter 
+Given User is clicks the explore page 
+When User clicks on category filter 
+And Category options should be displayed 
+And user selects a category 
+Then Related businesses should be displayed 
+ 
+Scenario: Verify sort by filter
+Given User is on explore page 
+When User selects recently added 
+Then Businesses should be sorted accordingly 
+ 
+Scenario: Verify minimum rating filter
+Given User is on explore page 
+When User selects minimum rating 
+Then matching businesses should be displayed 
+
+Scenario: Verify verified only filter 
+Given User is on explore page 
+When User selects verified only checkbox 
+Then Verified businesses should be displayed 
+
+
+
+
+
+
 
 
 

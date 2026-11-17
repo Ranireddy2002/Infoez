@@ -105,35 +105,64 @@ import io.cucumber.java.en.When;
 		Assert.assertTrue("Pricing page not displayed", p.pricingplanpage.isDisplayed());
 	 
 	}
-	@Given("User is on explore page")
-	public void user_is_on_explore_page() {
-	    Assert.assertTrue("Explore page not displayed",p.getexplorepage().isDisplayed());
+	@Then("Explore page should be displayed")
+	public void explore_page_should_be_displayed() {
+	    Assert.assertTrue("Explore page not displayed", p.explorepage.isDisplayed());
+	}
+	@Given("User is clicks the explore page")
+	public void user_is_clicks_the_explore_page() {
+	    click(p.explorepage);
+	}
+ 
+
+	@When("user enters {string} in search field")
+	public void user_enters_in_search_field(String string) {
+	    p.explorebusinessearchield.clear();
+	    p.explorebusinessearchield.sendKeys(string);
 	}
 
-	@When("user enters business name {string} in search field")
-	public void user_enters_business_name_in_search_field(String string) {
-	    p.getexplorebusinessearchield().clear();
-	    p.getexplorebusinessearchield().sendKeys(string);
-	}
-
-	@When("User enters city {string} in city field")
-	public void user_enters_city_in_city_field(String string) {
-	   p.getexplorelocationfield().clear();
-	   p.getexplorelocationfield().sendKeys(string);
+	@When("User enters {string} in city field")
+	public void user_enters_in_city_field(String string) {
+		p.explorelocationfield.clear();
+		p.explorelocationfield.sendKeys(string);
+	    
 	}
 
 	@When("User clicks on search button")
 	public void user_clicks_on_search_button() {
-	    click(p.getexploresearchbtn());
+	    p.exploresearchbtn.click();
 	}
 
 	@Then("Relevent businesses should be displayed")
 	public void relevent_businesses_should_be_displayed() {
-	    
+	  Assert.assertTrue(p.getBusinessCards().size() > 0);
+	}
+	
+
+	@When("User clicks on category filter")
+	public void user_clicks_on_category_filter() {
+	   explicitWaitClickable(p.filtercategory).click();
 	}
 
+	@When("Category options should be displayed")
+	public void category_options_should_be_displayed() {
+	   Assert.assertTrue(p.filtercategory.isDisplayed());
+	}
+
+	@When("user selects a category")
+	public void user_selects_a_category() {
+	   p.gethomeservices().click();
+	}
+
+	@Then("Related businesses should be displayed")
+	public void related_businesses_should_be_displayed() {
+	  Assert.assertTrue(explicitWaitClickable(p.getbusinesscard()).isDisplayed());
+	  }
+ }
 
 
 
-    }
+
+
+    
 	
