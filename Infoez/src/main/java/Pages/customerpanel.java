@@ -100,9 +100,6 @@ public class customerpanel {
 	@FindBy(xpath = "//button[@data-testid='filter-category']")
 	public WebElement filtercategory;
 	
-	@FindBy(xpath = "//button[@data-testid='filter-sort']" )
-	public WebElement filtersort;
-	
 	@FindBy(xpath = "//button[@data-testid='filter-min-rating']")
 	public WebElement filtermin;
 	
@@ -150,11 +147,30 @@ public class customerpanel {
 	public WebElement businesscard;
 	
 	@FindBy(xpath = "//span[text()='Home Services']")
-	WebElement homeservices;
+	public WebElement homeservices;
 	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[1]/button/svg")
+	public WebElement recentlyadded;
 	
+	@FindBy(xpath = "//span[@data-testid='filter-category']/ancestor::button")
+	public WebElement filtercategory1;
+	
+	@FindBy(xpath = "//span[normalize-space()='Top rated']")
+	public WebElement toprated;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[2]/button" )
+	public WebElement filtersort;
 	
 	//Getters
+	public WebElement getfiltercategory1() {
+		return filtercategory1;
+	}
+	public WebElement gettoprated() {
+		return toprated;
+	}
+	public WebElement getrecentlyadded() {
+		return recentlyadded;
+	}
 	public WebElement gethomeservices() {
 		return homeservices;
 	}

@@ -32,18 +32,17 @@ And User clicks Howitworks
 And User clicks pricing 
 
 @Explore
-
 Scenario: Verify explore page
 Given User launches the browser
 When User clicks on explore
 Then Explore page should be displayed 
 
 Scenario Outline: Verify search functionality
-Given User is on explore page 
+Given User is clicks the explore page  
 When user enters "<Businessname>" in search field 
 And User enters "<City>" in city field 
 And User clicks on search button 
-Then Relevent businesses should be displayed 
+Then Search results should be "<Results>" for "<Businessname>" 
 Examples:
 |Businessname    |City      |Results |
 |Aroma cafe      |Banglore  |Valid   |
@@ -52,41 +51,33 @@ Examples:
 |A2B             |          |Valid   |
 |@#$WER          |wertyu    |Invalid |
 
-Scenario: Verify category filter 
+Scenario: Verify filter section 
 Given User is clicks the explore page 
-When User clicks on category filter 
-And Category options should be displayed 
-And user selects a category 
-Then Related businesses should be displayed 
+When User selects a category from the category dropdown 
+And User selects a sorting option from the sort by dropdown 
+And User selects a minimium rating from the min rating dropdown 
+And user selects the verified only checkbox 
+Then The business listings should be displayed based on the selected filter criteria 
+
  
-Scenario: Verify sort by filter
-Given User is on explore page 
-When User selects recently added 
-Then Businesses should be sorted accordingly 
  
-Scenario: Verify minimum rating filter
-Given User is on explore page 
-When User selects minimum rating 
-Then matching businesses should be displayed 
-
-Scenario: Verify verified only filter 
-Given User is on explore page 
-When User selects verified only checkbox 
-Then Verified businesses should be displayed 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

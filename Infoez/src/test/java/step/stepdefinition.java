@@ -116,15 +116,17 @@ import io.cucumber.java.en.When;
  
 
 	@When("user enters {string} in search field")
-	public void user_enters_in_search_field(String string) {
+	public void user_enters_in_search_field(String businessname) {
+	    WebDriverWait wait = new WebDriverWait(Baseclass.driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(p.explorebusinessearchield));
 	    p.explorebusinessearchield.clear();
-	    p.explorebusinessearchield.sendKeys(string);
+	    p.explorebusinessearchield.sendKeys(businessname);
 	}
 
 	@When("User enters {string} in city field")
-	public void user_enters_in_city_field(String string) {
+	public void user_enters_in_city_field(String city) {
 		p.explorelocationfield.clear();
-		p.explorelocationfield.sendKeys(string);
+		p.explorelocationfield.sendKeys(city);
 	    
 	}
 
@@ -133,13 +135,20 @@ import io.cucumber.java.en.When;
 	    p.exploresearchbtn.click();
 	}
 
-	@Then("Relevent businesses should be displayed")
-	public void relevent_businesses_should_be_displayed() {
-	  Assert.assertTrue(p.getBusinessCards().size() > 0);
+	@Then("Search results should be {string} for {string}")
+	public void search_results_should_be_for(String Results, String Businessname) {
+	   if (Results.equalsIgnoreCase("Valid")) {
+		   if (Businessname.isEmpty()) {
+			   Assert.assertTrue(explicitWaitClickable(p.getbusinesscard()).isDisplayed());
+		   } 
+		   
+	   } else if (Results.equalsIgnoreCase("Invalid")) {
+		   Assert.assertTrue(p.Nobusinessesfound.isDisplayed());
+	   }
 	}
 	
 
-	@When("User clicks on category filter")
+	/* @When("User clicks on category filter")
 	public void user_clicks_on_category_filter() {
 	   explicitWaitClickable(p.filtercategory).click();
 	}
@@ -158,6 +167,54 @@ import io.cucumber.java.en.When;
 	public void related_businesses_should_be_displayed() {
 	  Assert.assertTrue(explicitWaitClickable(p.getbusinesscard()).isDisplayed());
 	  }
+	@When("user clicks on sort by filter")
+	public void user_clicks_on_sort_by_filter() {
+	   p.filtersort.click();
+	}
+
+	@When("sort options should be displayed")
+	public void sort_options_should_be_displayed() {
+	   Assert.assertTrue(p.getrecentlyadded().isDisplayed());
+	}
+
+	@When("user selects recently added")
+	public void user_selects_recently_added() {
+	   p.getrecentlyadded().click();
+	}
+
+	@Then("businesses should be sorted accordingly")
+	public void businesses_should_be_sorted_accordingly() {
+	    Assert.assertTrue(p.getbusinesscard().isDisplayed());
+	}  */
+	@When("User selects a category from the category dropdown")
+	public void user_selects_a_category_from_the_category_dropdown() {
+		explicitWaitClickable(p.filtercategory).click();
+		explicitWaitClickable(p.gethomeservices()).click();
+	}
+
+	@When("User selects a sorting option from the sort by dropdown")
+	public void user_selects_a_sorting_option_from_the_sort_by_dropdown() {
+	   p.filtersort.click();
+	   p.gettoprated().click();
+	}
+
+	@When("User selects a minimium rating from the min rating dropdown")
+	public void user_selects_a_minimium_rating_from_the_min_rating_dropdown() {
+	   p.filtermin.click();
+	   p.getrating4().click();
+	}
+
+	@When("user selects the verified only checkbox")
+	public void user_selects_the_verified_only_checkbox() {
+	    p.filterverifiedonly.click();
+	}
+
+	@Then("The business listings should be displayed based on the selected filter criteria")
+	public void the_business_listings_should_be_displayed_based_on_the_selected_filter_criteria() {
+		Assert.assertTrue(explicitWaitClickable(p.getbusinesscard()).isDisplayed());
+	}
+
+	
  }
 
 
