@@ -129,7 +129,7 @@ import io.cucumber.java.en.When;
 		p.explorelocationfield.sendKeys(city);
 	    
 	}
-
+    
 	@When("User clicks on search button")
 	public void user_clicks_on_search_button() {
 	    p.exploresearchbtn.click();
@@ -146,8 +146,7 @@ import io.cucumber.java.en.When;
 		   Assert.assertTrue(p.Nobusinessesfound.isDisplayed());
 	   }
 	}
-	
-
+                                       
 	/* @When("User clicks on category filter")
 	public void user_clicks_on_category_filter() {
 	   explicitWaitClickable(p.filtercategory).click();
@@ -213,6 +212,95 @@ import io.cucumber.java.en.When;
 	public void the_business_listings_should_be_displayed_based_on_the_selected_filter_criteria() {
 		Assert.assertTrue(explicitWaitClickable(p.getbusinesscard()).isDisplayed());
 	}
+	@Then("Nearme page should displayed")
+	public void nearme_page_should_displayed() {
+	   Assert.assertTrue(p.nearmepage.isDisplayed());
+	   }
+
+	@Then("Search nearby field should be displayed")
+	public void search_nearby_field_should_be_displayed() {
+	    Assert.assertTrue(p.nearmesearchnearby.isDisplayed());
+	}
+
+	@Then("All categories dropdown should displayed")
+	public void all_categories_dropdown_should_displayed() {
+	   Assert.assertTrue(p.nearmecategory.isDisplayed());
+	}
+
+	@Then("Within km dropdown should be displayed")
+	public void within_km_dropdown_should_be_displayed() {
+	    Assert.assertTrue(p.withinKMbtn.isDisplayed());
+	}
+
+	@Then("Apply button should be displayed")
+	public void apply_button_should_be_displayed() {
+	    Assert.assertTrue(p.mapapplybtn.isDisplayed());
+	}
+
+	@Then("Use my location button should be displayed")
+	public void use_my_location_button_should_be_displayed() {
+	    Assert.assertTrue(p.usemylocationbtn.isDisplayed());
+	}
+	@Given("User clicks on how it works")
+	public void user_clicks_on_how_it_works() {
+	    p.howitworks.click();
+	}
+
+	@Then("How it works page should be dispalyed")
+	public void how_it_works_page_should_be_dispalyed() {
+		Assert.assertTrue("How it works page not displayed", p.howitworkspage.isDisplayed());
+	}
+
+	@Then("Serch verified locals should be displayed")
+	public void serch_verified_locals_should_be_displayed() {
+	   Assert.assertTrue(p.searchverifiedlocals.isDisplayed());
+	}
+
+	@Then("Trust the badge should be displayed")
+	public void trust_the_badge_should_be_displayed() {
+	   Assert.assertTrue(p.trustthebadge.isDisplayed());
+	}
+
+	@Then("Send enquiries should be displayed")
+	public void send_enquiries_should_be_displayed() {
+	    Assert.assertTrue(p.sendenquiries.isDisplayed());
+	}
+
+	@Then("Rate and review should be displayed")
+	public void rate_and_review_should_be_displayed() {
+	    Assert.assertTrue(p.rateandreview.isDisplayed());
+	}
+
+	@Then("Start exploring button should be displayed")
+	public void start_exploring_button_should_be_displayed() {
+	    
+	}
+
+	@When("user clicks on start exploring")
+	public void user_clicks_on_start_exploring() {
+	   
+	}
+
+	@When("User navigates back to how it works page")
+	public void user_navigates_back_to_how_it_works_page() {
+	    
+	}
+
+	@When("list your business button should be displayed")
+	public void list_your_business_button_should_be_displayed() {
+	   
+	}
+
+	@When("User clicks on list your business")
+	public void user_clicks_on_list_your_business() {
+	    
+	}
+
+	@Then("list your business page should be displayed")
+	public void list_your_business_page_should_be_displayed() {
+	    
+	}
+	
 
 	
  }

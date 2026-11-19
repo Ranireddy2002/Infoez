@@ -109,7 +109,6 @@ public class customerpanel {
 	@FindBy(xpath ="//*[@id=\"root\"]/div/header/div/nav/a[1]")
 	public WebElement explorepage;
 	
-	
 	@FindBy(xpath = "//*[normalize-space()='4.0+']")
 	public WebElement rating4;
 	
@@ -161,7 +160,43 @@ public class customerpanel {
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[2]/button" )
 	public WebElement filtersort;
 	
+	@FindBy(xpath = "//input[@data-testid = 'map-search-input']")
+	public WebElement nearmesearchnearby;
+	
+	@FindBy(xpath = "//button[@data-testid = 'map-category']")
+	public WebElement nearmecategory;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[1]")
+	public WebElement searchverifiedlocals;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[2]")
+	public WebElement trustthebadge;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[3]")
+	public WebElement sendenquiries;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[4]")
+	public WebElement rateandreview;
+	
 	//Getters
+	public WebElement getrateandreview() {
+		return rateandreview;
+	}
+	public WebElement getsendenquiries() {
+		return sendenquiries;
+	}
+	public  WebElement gettrustthebadge() {
+		return trustthebadge;
+	}
+	public WebElement getsearchverifiedlocals() {
+		return searchverifiedlocals;
+	}
+	public WebElement getnearmecategory() {
+		return nearmecategory;
+	}
+	public WebElement getnearmesearchnearby() {
+		return nearmesearchnearby;
+	}
 	public WebElement getfiltercategory1() {
 		return filtercategory1;
 	}

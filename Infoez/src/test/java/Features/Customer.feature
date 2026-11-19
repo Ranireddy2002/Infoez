@@ -59,9 +59,35 @@ And User selects a minimium rating from the min rating dropdown
 And user selects the verified only checkbox 
 Then The business listings should be displayed based on the selected filter criteria 
 
+ @Nearme
  
+ Scenario: Verify nearme page
+ Given User clicks near me
+ Then Nearme page should displayed 
+ And Search nearby field should be displayed 
+ And All categories dropdown should displayed 
+ And Within km dropdown should be displayed 
+ And Apply button should be displayed 
+ And Use my location button should be displayed 
  
+ @Howitworks 
+ Scenario: Verify How it works page
+ Given User clicks on how it works 
+ Then How it works page should be dispalyed 
+ And Serch verified locals should be displayed 
+ And Trust the badge should be displayed 
+ And Send enquiries should be displayed 
+ And Rate and review should be displayed 
+ And Start exploring button should be displayed 
+ When user clicks on start exploring 
+ Then Explore page should be displayed
+ When User navigates back to how it works page 
+ And list your business button should be displayed 
+ When User clicks on list your business 
+ Then list your business page should be displayed 
  
+
+
  
  
  
