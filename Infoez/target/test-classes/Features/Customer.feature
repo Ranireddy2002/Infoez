@@ -86,24 +86,24 @@ Then The business listings should be displayed based on the selected filter crit
  When User clicks on list your business 
  Then list your business page should be displayed 
  
+@Pricing
+Scenario: verify pricing page 
+Given user clciks on pricing 
+Then Pricing page should be displayed 
+And Free plan should be displayed 
+And Starter plan should be displayed 
+And Pro plan should be displayed 
+And Enterprise plan should be displayed 
 
+@Customerprofile 
+Scenario: Verify customer profile 
+#Given User is on home page
+When User clicks on customer profile 
+Then Profile should be displayed 
+And Favorite should be displayed 
+And My reviews should be displayed 
+And My enquiries should be displayed 
+And Notifications should be displayed 
+And Subscription should be displayed 
+And Logout should be displayed 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 

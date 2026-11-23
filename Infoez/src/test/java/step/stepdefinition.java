@@ -48,7 +48,7 @@ import io.cucumber.java.en.When;
 
 	@When("user clicks on signin")
 	public void user_clicks_on_signin() {
-		p.signin.click();
+		p.getsigninbtn().click();
 	}
 
 	@Then("the user redirected to the home page {string}")
@@ -273,34 +273,101 @@ import io.cucumber.java.en.When;
 
 	@Then("Start exploring button should be displayed")
 	public void start_exploring_button_should_be_displayed() {
-	    
+	    Assert.assertTrue(p.startexploring.isDisplayed());
 	}
 
 	@When("user clicks on start exploring")
 	public void user_clicks_on_start_exploring() {
-	   
+	   explicitWaitClickable(p.startexploring).click();
 	}
 
 	@When("User navigates back to how it works page")
 	public void user_navigates_back_to_how_it_works_page() {
-	    
+	    driver.navigate().back();
 	}
 
 	@When("list your business button should be displayed")
 	public void list_your_business_button_should_be_displayed() {
-	   
+	   Assert.assertTrue(p.listyourbusiness.isDisplayed());
 	}
 
 	@When("User clicks on list your business")
 	public void user_clicks_on_list_your_business() {
-	    
+	    explicitWaitClickable(p.listyourbusiness).click();
 	}
 
 	@Then("list your business page should be displayed")
 	public void list_your_business_page_should_be_displayed() {
-	    
+	    Assert.assertTrue(p.listyourbusinesspage.isDisplayed());
 	}
-	
+	@Given("user clciks on pricing")
+	public void user_clciks_on_pricing() {
+	    p.getpricing().click();
+	}
+
+	@Then("Pricing page should be displayed")
+	public void pricing_page_should_be_displayed() {
+	 Assert.assertTrue(p.pricingplanpage.isDisplayed());
+	  }
+
+	@Then("Free plan should be displayed")
+	public void free_plan_should_be_displayed() {
+	  Assert.assertTrue(p.getfreeplan().isDisplayed());
+	}
+
+	@Then("Starter plan should be displayed")
+	public void starter_plan_should_be_displayed() {
+	    Assert.assertTrue(p.getstarterplan().isDisplayed());
+	}
+
+	@Then("Pro plan should be displayed")
+	public void pro_plan_should_be_displayed() {
+	   Assert.assertTrue(p.getproplan().isDisplayed());
+	}
+
+	@Then("Enterprise plan should be displayed")
+	public void enterprise_plan_should_be_displayed() {
+	    Assert.assertTrue(p.getenterpriceplan().isDisplayed());
+	}
+	@Given("User clicks on customer profile")
+	public void user_clicks_on_customer_profile() {
+	  p.customerprofilebtn.click();
+	}
+
+	@Then("Profile should be displayed")
+	public void profile_should_be_displayed() {
+	    Assert.assertTrue(p.getmenuprofile().isDisplayed());
+	}
+
+	@Then("Favorite should be displayed")
+	public void favorite_should_be_displayed() {
+	   Assert.assertTrue(p.getfavorites().isDisplayed());
+	}
+
+	@Then("My reviews should be displayed")
+	public void my_reviews_should_be_displayed() {
+	    Assert.assertTrue(p.getreviews().isDisplayed());
+	}
+
+	@Then("My enquiries should be displayed")
+	public void my_enquiries_should_be_displayed() {
+	   Assert.assertTrue(p.getenquiries().isDisplayed());
+	}
+
+	@Then("Notifications should be displayed")
+	public void notifications_should_be_displayed() {
+	    Assert.assertTrue(p.getnotifications().isDisplayed());
+	}
+
+	@Then("Subscription should be displayed")
+	public void subscription_should_be_displayed() {
+	    Assert.assertTrue(p.getsubscription().isDisplayed());
+	}
+
+	@Then("Logout should be displayed")
+	public void logout_should_be_displayed() {
+	  Assert.assertTrue(p.getLogout().isDisplayed());
+	}
 
 	
  }

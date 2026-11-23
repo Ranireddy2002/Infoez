@@ -85,8 +85,8 @@ public class customerpanel {
 	@FindBy (xpath = "//a[@data-testid = 'nav-how-it-works']")
 	public WebElement howitworks;
 	
-	@FindBy (xpath = "//a[@data-testid = 'nav-pricing']")
-	public WebElement pricing;
+	//@FindBy (xpath = "//a[@data-testid = 'nav-pricing']")
+	//public WebElement pricing;
 	
 	@FindBy(xpath = "//input[@data-testid='search-query-input']")
 	public WebElement explorebusinessearchield;
@@ -178,7 +178,113 @@ public class customerpanel {
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[4]")
 	public WebElement rateandreview;
 	
+	@FindBy(xpath = "//a[normalize-space()='Start exploring']")
+	public WebElement startexploring;
+	
+	@FindBy(xpath = "//a[normalize-space()='List your business']")
+	public WebElement listyourbusiness;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Create your account']")
+	public WebElement listyourbusinesspage;
+	
+	@FindBy(xpath = "//a[@href='/pricing']")
+	public WebElement pricing;
+	
+	@FindBy(xpath = "//h1[normalize-space()='Choose your plan']")
+	public WebElement pricingpage;
+	
+	@FindBy(xpath = "//h3[text()='Free']")
+	public WebElement freeplan;
+	
+	@FindBy(xpath = "//h3[text()='Starter']")
+	public WebElement starterplan;
+	
+	@FindBy(xpath = "//h3[text()='Pro']")
+	public WebElement proplan;
+	
+	@FindBy(xpath = "//h3[text()='Enterprise']")
+	public WebElement enterpriceplan;
+	
+	@FindBy (xpath="//button[text()='Choose plan']")
+	public WebElement chooseplan;
+	
+	@FindBy(xpath = "//button[@data-testid='user-menu-btn']")
+	public WebElement customerprofilebtn;
+	
+	public WebElement getcustomerprofilebtn() {
+		return customerprofilebtn;
+	}
+	
+	@FindBy(xpath = "//div[@data-testid = 'menu-profile']")
+	public WebElement menuprofile;
+	
+	public WebElement getmenuprofile() {
+		return menuprofile;
+	}
+	@FindBy(xpath = "//div[@data-testid = 'menu-favorites']")
+	public WebElement favorites;
+	
+	public WebElement getfavorites() {
+		return favorites;
+	}
+	@FindBy(xpath = "//div[@data-testid = 'menu-reviews']")
+	public WebElement reviews;
+	
+	public WebElement getreviews() {
+		return reviews;
+	}
+	@FindBy(xpath = "//div[@data-testid = 'menu-enquiries']")
+	public WebElement enquiries;
+	
+	public WebElement getenquiries() {
+		return enquiries;
+	}
+	@FindBy(xpath = "//div[@data-testid = 'menu-notifications']")
+	public WebElement notifications;
+	
+	public WebElement getnotifications() {
+		return notifications;
+	}
+	@FindBy(xpath = "//div[@role='menuitem'and normalize-space()='Subscription']")
+	public WebElement subscription;
+	
+	public WebElement getsubscription() {
+		return subscription;
+	}
+	@FindBy(xpath = "//div[@data-testid = 'menu-logout']")
+	public WebElement Logout;
+	
+	public WebElement getLogout() {
+		return Logout;
+	}
 	//Getters
+	public WebElement getchooseplan() {
+		return chooseplan;
+	}
+	public WebElement getenterpriceplan() {
+		return enterpriceplan;
+	}
+	public WebElement getproplan() {
+		return proplan;
+	}
+	public WebElement getstarterplan() {
+		return starterplan;
+	}
+	public WebElement getfreeplan() {
+		return freeplan;
+	}
+	public WebElement getpricingpage() {
+		return pricingpage;
+	}
+	public WebElement getlistyourbusinesspage() {
+		return listyourbusinesspage;
+	}
+	public WebElement getlistyourbusiness() {
+		return listyourbusiness;
+	}
+	public WebElement getstartexploring() {
+		return startexploring;
+	}
 	public WebElement getrateandreview() {
 		return rateandreview;
 	}
