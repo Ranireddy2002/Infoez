@@ -35,40 +35,40 @@ import io.cucumber.java.en.When;
 	}
 
 	@When("the user enters username {string}")
-	public void the_user_enters_username(String string) {
+	public void the_user_enters_username(String Email) {
 		p.email.clear();
-	    p.email.sendKeys(string);
+	    p.email.sendKeys(Email);
 	}
 
 	@When("The user enter password {string}")
-	public void the_user_enter_password(String string) {
+	public void the_user_enter_password(String Password) {
 		p.password.clear();
-	    p.password.sendKeys(string);
+	    p.password.sendKeys(Password);
 	}
 
 	@When("user clicks on signin")
 	public void user_clicks_on_signin() {
-		p.getsigninbtn().click();
+		click(p.signin);
 	}
 
 	@Then("the user redirected to the home page {string}")
-	public void the_user_redirected_to_the_home_page(String string) {
-		if (string.equals("Invalid1")) {
+	public void the_user_redirected_to_the_home_page(String Results) {
+		if (Results.equals("Invalid1")) {
 			Assert.assertTrue("value is not a valid email address: The part after the @-sign is not valid. It should have a period.",p.isHomePageDisplayed());
 		}
-		else if (string.equals("Invalid2")) {
+		else if (Results.equals("Invalid2")) {
 			Assert.assertTrue("value is not a valid email address: The part after the @-sign is not valid. It should have a period.",p.isHomePageDisplayed());
 		}
-		else if (string.equals("Invalid3")) {
+		else if (Results.equals("Invalid3")) {
 			Assert.assertTrue("!Please fill out these field.",p.isHomePageDisplayed());
 		}
-		else if (string.equals("Invalid4")) {
+		else if (Results.equals("Invalid4")) {
 			Assert.assertTrue("!Please include an '@' in the email address, 'asdfgg' is missing an @.",p.isHomePageDisplayed());
 		}
-		else if (string.equals("Invalid5")) {
+		else if (Results.equals("Invalid5")) {
 			Assert.assertTrue("!Please enter a part of followed by '@'.'@#$$%^^' is incomplete.",p.isHomePageDisplayed());
 		}
-		else if (string.equals("Valid")) {
+		else if (Results.equals("Valid")) {
 			Assert.assertTrue(isDisplayed(p.Homepage));
 		}
 		
@@ -331,7 +331,8 @@ import io.cucumber.java.en.When;
 	}
 	@Given("User clicks on customer profile")
 	public void user_clicks_on_customer_profile() {
-	  p.customerprofilebtn.click();
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	 wait.until(ExpectedConditions.elementToBeClickable(p.getcustomerprofilebtn())).click();
 	}
 
 	@Then("Profile should be displayed")
@@ -367,6 +368,71 @@ import io.cucumber.java.en.When;
 	@Then("Logout should be displayed")
 	public void logout_should_be_displayed() {
 	  Assert.assertTrue(p.getLogout().isDisplayed());
+	}
+	@Then("User should navigate to profile page")
+	public void user_should_navigate_to_profile_page() {
+	    Assert.assertTrue(Baseclass.driver.getCurrentUrl().contains("/profile"));	}
+
+	@Then("User should verify email")
+	public void user_should_verify_email() {
+	   Assert.assertTrue(p.getprofileemail().isDisplayed());
+	}
+
+	@Then("User should verify role")
+	public void user_should_verify_role() {
+	  Assert.assertTrue(p.getprofilerole().isDisplayed());
+	}
+
+	@Then("User enters {string} in name field")
+	public void user_enters_in_name_field(String Name) {
+	   p.getprofilename().clear();
+	   p.getprofilename().sendKeys(Name);
+	}
+
+	@Then("User enters {string} in phone field")
+	public void user_enters_in_phone_field(String Phone) {
+	  p.getprofilenumber().clear();
+	  p.getprofilenumber().sendKeys(Phone);
+	}
+
+	@Then("User enters {string} in avatar URL field")
+	public void user_enters_in_avatar_url_field(String AvatarURL) {
+	   p.getprofileavatar().clear();
+	   p.getprofileavatar().sendKeys(AvatarURL);
+	}
+
+	@When("user clicks on save changes button")
+	public void user_clicks_on_save_changes_button() {
+	   p.getprofilesavebtn().click();
+	}
+
+	@Then("User should verify profile details are updated successfully")
+	public void user_should_verify_profile_details_are_updated_successfully() {
+	    
+	}
+	@When("User clicks on favorites")
+	public void user_clicks_on_favorites() {
+	    
+	}
+
+	@Then("Favorite page should be displayed")
+	public void favorite_page_should_be_displayed() {
+	   
+	}
+
+	@When("User clicks on favorite icon")
+	public void user_clicks_on_favorite_icon() {
+	   
+	}
+
+	@Then("selected business should be removed from favorites")
+	public void selected_business_should_be_removed_from_favorites() {
+	    
+	}
+
+	@Then("{string} message should be displayed")
+	public void message_should_be_displayed(String string) {
+	    
 	}
 
 	

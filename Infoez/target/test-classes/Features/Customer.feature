@@ -1,10 +1,11 @@
 @Customerpanel
-Feature: Infoez Customer Module
 
+Feature: Infoez Customer Module
 Background:
 Given User launches the browser
 When User open the Infoez application
 And User clicks on sign in button
+And user clicks on signin
 
 @Login
 Scenario Outline: To verify the valid and invalid customer login functionality
@@ -96,7 +97,7 @@ And Pro plan should be displayed
 And Enterprise plan should be displayed 
 
 @Customerprofile 
-Scenario: Verify customer profile 
+Scenario: Verify  profile 
 #Given User is on home page
 When User clicks on customer profile 
 Then Profile should be displayed 
@@ -106,4 +107,55 @@ And My enquiries should be displayed
 And Notifications should be displayed 
 And Subscription should be displayed 
 And Logout should be displayed 
+
+@Profile
+Scenario Outline: To verify profile functionality
+Given User is on home page
+When User clicks on customer profile
+Then User should navigate to profile page 
+And User should verify email 
+And User should verify role 
+And User enters "<Name>" in name field 
+And User enters "<Phone>" in phone field 
+And User enters "<AvatarURL>" in avatar URL field 
+When user clicks on save changes button 
+Then User should verify profile details are updated successfully 
+
+Examples:
+|Name           |Phone      |AvatarURL   |
+|Roopa          |9876543210 |qwertyui    |
+|               |234567899  |            |
+|zxcv           |           |            |
+|               |           | //https.gwd|
+|               |           |            |
+
+@Favorites
+Scenario: Verify favorite page functionality
+Given User is on home page
+When User clicks on customer profile
+And User clicks on favorites 
+Then Favorite page should be displayed 
+When User clicks on favorite icon 
+Then selected business should be removed from favorites 
+And "Removed from Favorites" message should be displayed 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

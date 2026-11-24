@@ -208,7 +208,7 @@ public class customerpanel {
 	@FindBy (xpath="//button[text()='Choose plan']")
 	public WebElement chooseplan;
 	
-	@FindBy(xpath = "//button[@data-testid='user-menu-btn']")
+	@FindBy(xpath = "//*[@id=\"radix-:r3:\"]")
 	public WebElement customerprofilebtn;
 	
 	public WebElement getcustomerprofilebtn() {
@@ -257,6 +257,49 @@ public class customerpanel {
 	public WebElement getLogout() {
 		return Logout;
 	}
+	@FindBy(xpath = "//label[normalize-space()='Email']/following::input[1]")
+	public WebElement profileemail;
+	
+	public WebElement getprofileemail() {
+		return profileemail;
+	}
+	@FindBy(xpath = "//label[normalize-space()='Email']/following::input[2]")
+	public WebElement profilerole;
+	
+	public WebElement getprofilerole() {
+		return profilerole;
+	}
+	@FindBy(xpath = "//input[@data-testid = 'profile-name']")
+	public WebElement profilename;
+	
+	public WebElement getprofilename() {
+		return profilename;
+	}
+	@FindBy(xpath = "//input[@data-testid = 'profile-number']")
+	public WebElement profilenumber;
+	
+	public WebElement getprofilenumber() {
+		return profilenumber;
+	}
+	@FindBy(xpath = "//input[@data-testid = 'profile-avatar']")
+	public WebElement profileavatar;
+	
+	public WebElement getprofileavatar() {
+		return profileavatar;
+	}
+	@FindBy(xpath = "//button[@data-testid = 'profile-save-btn']")
+	public WebElement profilesavebtn;
+	
+	public WebElement getprofilesavebtn() {
+		return profilesavebtn;
+	}
+	@FindBy(xpath = "//h1[normalize-space()='Your favorites']")
+	public WebElement favoritepage;
+	
+	public WebElement getfavoritepage() {
+		return favoritepage;
+	}
+	
 	//Getters
 	public WebElement getchooseplan() {
 		return chooseplan;
