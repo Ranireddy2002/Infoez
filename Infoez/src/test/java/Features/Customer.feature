@@ -136,9 +136,17 @@ When User clicks on customer profile
 And User clicks on favorites 
 Then Favorite page should be displayed 
 When User clicks on favorite icon 
-Then selected business should be removed from favorites 
-And "Removed from Favorites" message should be displayed 
+Then "Removed from Favorites" message should be displayed 
 
+@Myreviews
+Scenario: Verify my reviews page functionality 
+Given User is on home page
+When User clicks on customer profile
+And User clicks on my reviews 
+Then My reviews page should be displayed 
+And Useres submitted reviews should be displayed 
+When User clicks on delete icon 
+Then "Review deleted successfully" message should displayed
 
 
 

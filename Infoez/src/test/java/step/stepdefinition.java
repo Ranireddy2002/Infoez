@@ -412,27 +412,45 @@ import io.cucumber.java.en.When;
 	}
 	@When("User clicks on favorites")
 	public void user_clicks_on_favorites() {
-	    
+	    p.favorites.click();
 	}
 
 	@Then("Favorite page should be displayed")
 	public void favorite_page_should_be_displayed() {
-	   
+	   Assert.assertTrue(p.favoritepage.isDisplayed());
 	}
 
 	@When("User clicks on favorite icon")
 	public void user_clicks_on_favorite_icon() {
-	   
-	}
-
-	@Then("selected business should be removed from favorites")
-	public void selected_business_should_be_removed_from_favorites() {
-	    
+	   p.removefavorite.click();
 	}
 
 	@Then("{string} message should be displayed")
 	public void message_should_be_displayed(String string) {
-	    
+		 Assert.assertTrue(p.getremovefavoritemessage().isDisplayed());
+	}
+	@When("User clicks on my reviews")
+	public void user_clicks_on_my_reviews() {
+	    p.reviews.click();
+	}
+
+	@Then("My reviews page should be displayed")
+	public void my_reviews_page_should_be_displayed() {
+	   Assert.assertTrue(p.getmyreviewspage().isDisplayed());
+	}
+
+	@Then("Useres submitted reviews should be displayed")
+	public void useres_submitted_reviews_should_be_displayed() {
+	   Assert.assertTrue(p.getmyreviews().isDisplayed());
+	}
+	@When("User clicks on delete icon")
+	public void user_clicks_on_delete_icon() {
+	    p.myreviewdeleteicon.click();
+	}
+
+	@Then("{string} message should displayed")
+	public void message_should_displayed(String string) {
+	    Assert.assertTrue(p.deletereviewmessage.isDisplayed());
 	}
 
 	

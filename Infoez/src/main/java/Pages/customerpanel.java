@@ -299,8 +299,43 @@ public class customerpanel {
 	public WebElement getfavoritepage() {
 		return favoritepage;
 	}
+	@FindBy(xpath = "//button[@data-testid='favorite-toggle-btn-fe53417d-63f3-4b6a-82e5-9f2de44140df']")
+	public WebElement removefavorite;
 	
-	//Getters
+	public WebElement getremovefavorite() {
+		return removefavorite;
+	}
+	@FindBy(xpath = "//*[@id=\"root\"]/div/section/ol/li")
+	public WebElement removefavoritemessage;
+	
+	public WebElement getremovefavoritemessage() {
+		return removefavoritemessage;
+	}
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/h1")
+	public WebElement myreviewspage;
+	
+	public WebElement getmyreviewspage() {
+		return myreviewspage;
+	}
+	@FindBy(xpath ="//*[@id=\"root\"]/div/main/div")
+    public WebElement myreviews;
+	
+	public WebElement getmyreviews() {
+		return myreviews;
+	}
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/div[1]/button")
+	public WebElement myreviewdeleteicon;
+	
+	public WebElement getmyreviewdeleteicon() {
+		return myreviewdeleteicon;
+	}
+	@FindBy(xpath = "//*[@id=\"root\"]/div/section/ol/li")
+	public WebElement deletereviewmessage;
+	
+	public WebElement getdeletereviewmessage() {
+		return deletereviewmessage;
+	}
+    //Getters
 	public WebElement getchooseplan() {
 		return chooseplan;
 	}
@@ -407,8 +442,7 @@ public class customerpanel {
 	public WebElement getseepricing() {
 		return seepricing;
 	}
-	
-	
+
 	public WebElement getfullname()  {
 		return fullname;
 	}
@@ -504,7 +538,7 @@ public class customerpanel {
 		
 	}
 	public WebElement getpricing() {
-		return pricing;
+	         	return pricing;
 	}
 
 }
